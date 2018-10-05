@@ -36,7 +36,7 @@
         <div class="d-flex"  v-if="todo.id!==receivingTodo.id"  >
           <div class="form-check"  >
             <input type="checkbox" class="form-check-input " v-model="todo.completed">
-            <div class="ml-5" @click="edit(todo)"> <!--不知為何無法用dblclick雙擊事件-->
+            <div class="ml-5" @dblclick="edit(todo)"> 
             <label class="form-check-label " :for="todo.id" :class="{'completed':todo.completed}" > 
               {{todo.title}}
             </label>
