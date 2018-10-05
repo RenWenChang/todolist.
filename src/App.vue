@@ -59,7 +59,7 @@
     </ul>
     <div class="card-footer d-flex justify-content-between" @click="canceledit()"> <!--點擊外圍取消編輯-->
       <span class="text-dark">還有  {{NotCompleterYet()}}  筆任務未完成</span>
-      <a class="clear" href="#" @click="deleteall()">清除所有任務</a>
+      <a class="text-primary" href="#" @click="deleteall()">清除所有任務</a>
     </div>
   </div>
 </div>
@@ -201,12 +201,10 @@ export default {
   text-decoration: line-through
 }
 a{
-     color: #FFFFFF
-}
-
-a:hover{color: #FFFFFF}
-
-
-.clear{color:#007bff}
+  color: #FFFFFF
+  }
+.nav-link:hover{
+  color: #FFFFFF
+  }
 
 </style>
