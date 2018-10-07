@@ -37,7 +37,7 @@
           <div class="form-check"  >
             <input type="checkbox" class="form-check-input " v-model="todo.completed">
             <div class="ml-5" @dblclick="edit(todo)"> 
-            <label class="form-check-label " :for="todo.id" :class="{'completed':todo.completed}" > 
+            <label class="form-check-label " :for="todo.completed" :class="{'completed':todo.completed}" > 
               {{todo.title}}
             </label>
 
@@ -123,7 +123,7 @@ export default {
       this.receivingTodo={};
     },
     deleteall:function(){
-      var retVal = confirm("您確定要 清除 所有 代辦事項嗎?" ); //想美化確認對話框....
+      var retVal = confirm("您確定要 清除 所有 代辦事項嗎?" ); 
           if( retVal == true ){
               this.visibility="all";
               console.log(this);
@@ -147,30 +147,7 @@ export default {
 
     computed:{
         filtertodo:function(){
-          /*老師解法
 
-          if(this.visibility=="all"){
-          return this.todos;
-          }
-          else if(this.visibility=="active"){
-            var newtodos =[];
-            this.todos.forEach(function(todo){
-              if(!todo.completed){
-                newtodos.push(todo);
-              }
-            })
-            return newtodos;
-          }
-            else if(this.visibility=="completed"){
-            var newtodos =[];
-            this.todos.forEach(function(todo){
-              if(todo.completed){
-                newtodos.push(todo);
-              }
-            })
-            return newtodos;
-          }
-          return [];*/
             switch(this.visibility){
               case 'all': 
                 return this.todos;
@@ -184,7 +161,7 @@ export default {
                 this.todos.forEach(function(todo){
                   if(todo.completed){newtodos.push(todo);}})
                 return newtodos;
-            }//我用switch簡化
+            }//用switch代替if省效能
         },
         virtualTodos: function() {
           var emptys = []
